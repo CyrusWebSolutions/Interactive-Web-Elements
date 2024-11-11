@@ -1,0 +1,4 @@
+The order of the script elements in HTML is very important. Where the slideshow_data.js has arrays used in slideshow.js, the slideshow_data.js file needs to be first
+in the head tag of HTML then follow with slideshow.js. This way the data file with the arrays is created and available for the slideshow.js file to use.
+If you place them in the wrong order, for this example, the first image won't load on refresh and there will be no image or caption until a button is clicked.
+This is due to the first script running and initializing currentSlide to an array that doesn't exist yet.
