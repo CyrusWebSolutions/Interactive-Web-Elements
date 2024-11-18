@@ -22,9 +22,10 @@ carousel.style.transform = `translateX(-${currentIndex * 50}%)`;
 
 // Initialize dots (create one dot per real testimonial)
 function initDots() {
-  testimonials.forEach(() => {
+  testimonials.forEach((_, index) => {
     const dot = document.createElement('button');
     dot.classList.add('dot');
+    dot.dataset.index = index; // Store the real index as a data attribute
     dotsContainer.appendChild(dot);
   });
   updateDots(); // Highlight the correct dots
@@ -61,13 +62,15 @@ function handleWrapAround() {
     // If we're at the cloned last slide, jump to the last real testimonial
     carousel.style.transition = 'none'; // Disable transition for seamless jump
     currentIndex = testimonials.length; // Set to the last real testimonial
-    carousel.style.transform = `translateX(-${currentIndex * 50}%)`;
+    const offset = currentIndex * -50;
+    carousel.style.transform = `translateX(${offset}%)`;
   }
   if (currentIndex === allTestimonials.length - 1) {
     // If we're at the cloned first slide, jump to the first real testimonial
     carousel.style.transition = 'none'; // Disable transition for seamless jump
     currentIndex = 1; // Set to the first real testimonial
-    carousel.style.transform = `translateX(-${currentIndex * 50}%)`;
+    const offset = currentIndex * -50;
+    carousel.style.transform = `translateX(${offset}%)`;
   }
 }
 
@@ -83,14 +86,22 @@ rightArrow.addEventListener('click', () => {
 // Add a listener for the end of transitions
 carousel.addEventListener('transitionend', handleWrapAround);
 
+// Add click event to dots
+dotsContainer.addEventListener('click', (event) => {
+  if (event.target.classList.contains('dot')) {
+    const dotIndex = parseInt(event.target.dataset.index, 10); // Get the real index of the clicked dot
+    moveToSlide(dotIndex + 1); // Move to the corresponding testimonial (+1 because of the clone)
+  }
+});
+
 // Auto-slide functionality
 let autoSlideInterval = setInterval(() => {
   moveToSlide(currentIndex + 1);
 }, 3000);
 
 // Stop auto-slide when the user interacts
-[leftArrow, rightArrow].forEach((arrow) => {
-  arrow.addEventListener('click', () => {
+[leftArrow, rightArrow, dotsContainer].forEach((element) => {
+  element.addEventListener('click', () => {
     clearInterval(autoSlideInterval);
   });
 });
