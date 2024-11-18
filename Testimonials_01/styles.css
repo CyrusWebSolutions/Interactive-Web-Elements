@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  
+  .testimonial-section {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    width: 80%;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Hides any overflow testimonials */
+    width: 100%;
+  }
+  
+  .testimonial-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .testimonial {
+    flex: 0 0 50%; /* Two testimonials visible at a time */
+    padding: 20px;
+    box-sizing: border-box;
+    background: #fff;
+    margin: 0; /* Remove margin to ensure no extra space */
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .arrow {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #333;
+  }
+  
+  .left-arrow {
+    left: 0;
+  }
+  
+  .right-arrow {
+    right: 0;
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .dots button {
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border: 2px solid #ccc;
+    background: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .dots .active {
+    background: black;
+    border-color: black;
+  }
+  
