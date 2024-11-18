@@ -35,10 +35,14 @@ function initDots() {
 function updateDots() {
   const dots = document.querySelectorAll('.dots button');
   dots.forEach((dot, index) => {
-    if (index === (currentIndex - 1) % testimonials.length || index === currentIndex % testimonials.length) {
-      dot.classList.add('active'); // Highlight the two visible testimonials
+    const firstVisibleIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    const secondVisibleIndex = currentIndex % testimonials.length;
+
+    // Check if the dot corresponds to the two visible testimonials
+    if (index === firstVisibleIndex || index === secondVisibleIndex) {
+      dot.classList.add('active'); // Highlight the dot
     } else {
-      dot.classList.remove('active');
+      dot.classList.remove('active'); // Remove highlight from others
     }
   });
 }
@@ -72,6 +76,9 @@ function handleWrapAround() {
     const offset = currentIndex * -50;
     carousel.style.transform = `translateX(${offset}%)`;
   }
+
+  // Update the dots after the jump
+  updateDots();
 }
 
 // Event listeners for arrows
