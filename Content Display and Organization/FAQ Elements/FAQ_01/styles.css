@@ -1,85 +1,87 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .faq-section {
-    text-align: center;
-    margin: 50px auto;
-    padding: 20px;
-    width: 80%;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .faq-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-  
-  .faq-item {
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 15px;
-    text-align: left;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .faq-arrow {
-    font-size: 12px;
-    transition: transform 0.3s;
-  }
-  
-  .faq-answer {
-    max-height: 0; /* Start with the answer hidden */
-    overflow: hidden;
-    padding: 0 15px;
-    font-size: 14px;
-    color: #666;
-    transition: max-height 0.3s ease, padding 0.3s ease; /* Smooth transition */
-  }
-  
-  .faq-answer p {
-    margin: 15px 0;
-  }
-  
-  .faq-item.open .faq-answer {
-    max-height: 200px; /* Adjust based on content length */
-    padding: 15px;
-  }
-  
-  .get-in-touch {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #f47c22;
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .get-in-touch:hover {
-    background-color: #d6651a;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.faq-section {
+  text-align: center;
+  margin: 50px auto;
+  padding: 20px;
+  width: 80%;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.faq-columns {
+  display: flex;
+  justify-content: space-between; /* Ensures even spacing between columns */
+  gap: 20px; /* Adds spacing between columns */
+}
+
+.faq-column {
+  flex: 1; /* Each column takes equal width */
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden; /* Ensures content stays within bounds */
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 15px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  font-size: 14px;
+  color: #666;
+  padding: 0 15px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px; /* Adjust based on content */
+  padding: 15px;
+}
+
+.get-in-touch {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f47c22;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.get-in-touch:hover {
+  background-color: #d6651a;
+}
