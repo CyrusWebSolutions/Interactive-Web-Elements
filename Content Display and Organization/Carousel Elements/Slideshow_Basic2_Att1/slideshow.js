@@ -11,7 +11,7 @@ function showSlide(index) {
 
   } else {
     currentSlide = index;
-    
+
   }
 
   const slideImage = document.getElementById("slide-image");
