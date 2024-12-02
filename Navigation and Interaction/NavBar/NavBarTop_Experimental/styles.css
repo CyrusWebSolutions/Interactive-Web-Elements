@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333; /* Dark background for header */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Spacing inside the header */
+}
+
+.navbar {
+    display: flex; /* Arrange items in a row */
+    justify-content: space-between; /* Logo on left, nav on right */
+    align-items: center; /* Vertically align items */
+}
+
+/* Logo Styles */
+.logo {
+    position: relative; /* For positioning the text inside */
+    display: inline-block; /* Treat logo as an inline block */
+}
+
+.logo img {
+    max-height: 50px; /* Limit the logo size */
+    transition: transform 0.3s, opacity 0.3s, filter 0.3s; /* Smooth hover effects */
+}
+
+.logo img:hover {
+    transform: scale(0.9); /* Slightly zoom out */
+    opacity: 0.5; /* Reduce visibility */
+    filter: blur(2px); /* Apply a blur effect */
+}
+
+.logo .logo-text {
+    position: absolute; /* Place text inside the logo container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Perfect centering */
+    font-size: 24px; /* Text size */
+    color: white; /* Text color */
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Ensure the text doesn't block clicks */
+    transition: opacity 0.3s; /* Smooth fade-in effect */
+}
+
+.logo:hover .logo-text {
+    opacity: 1; /* Show the text on hover */
+}
+
+/* Navigation Menu Styles */
+.nav-menu {
+    list-style-type: none; /* Remove default bullet points */
+    display: flex; /* Arrange items in a row */
+    margin: 0; /* Remove outer spacing */
+    padding: 0; /* Remove inner spacing */
+}
+
+.nav-menu li {
+    margin: 0 15px; /* Add space between menu items */
+    position: relative; /* For dropdown positioning */
+}
+
+.nav-menu a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* White text color */
+    font-size: 16px; /* Set font size */
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+.nav-menu a:hover {
+    color: orange; /* Change text color on hover */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Fully transparent */
+    position: absolute; /* Position relative to the parent */
+    top: 100%; /* Place below the parent item */
+    left: 0; /* Align to the left edge */
+    background-color: #444; /* Dark background for dropdown */
+    list-style: none; /* Remove bullet points */
+    padding: 10px 0; /* Add vertical padding */
+    margin: 0; /* Remove outer margin */
+    min-width: 150px; /* Ensure minimum width */
+    z-index: 1; /* Ensure it appears above other elements */
+    transition: visibility 0s, opacity 0.3s; /* Smooth fade-in/out */
+}
+
+.dropdown-menu li {
+    padding: 5px 20px; /* Space around dropdown items */
+}
+
+.dropdown-menu li a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+}
+
+.dropdown-menu li a:hover {
+    color: orange; /* Highlight dropdown links on hover */
+}
+
+.dropdown:hover .dropdown-menu {
+    visibility: visible; /* Show dropdown menu */
+    opacity: 1; /* Make it fully visible */
+}
